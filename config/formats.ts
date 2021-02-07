@@ -2966,4 +2966,20 @@ export const Formats: FormatList = [
 		},
 		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Desync Clause Mod'],
 	},
+
+	// ROM Hacks
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "ROM Hacks",
+	},
+	{
+		name: "[Gen 3] Emerald Kaizo",
+		desc: `A ROM hack of Pokemon Emerald with vastly increased difficulty`,
+		threads: [
+		],
+
+		mod: 'emeraldkaizo',
+		ruleset: ['Standard'],
+	},
 ];
