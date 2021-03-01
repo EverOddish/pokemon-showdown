@@ -2982,4 +2982,139 @@ export const Formats: FormatList = [
 		mod: 'emeraldkaizo',
 		ruleset: ['Standard'],
 	},
+
+	// Hardcore Nuzlocke
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "Hardcore Nuzlocke",
+	},
+	{
+		name: "[Gen 4] Platinum to Fantina",
+		desc: `Only valid Nuzlocke encounters and items until Fantina with a level cap of 26`,
+		mod: 'gen4',
+        maxLevel: 26,
+		ruleset: ['Standard'],
+        banlist: ['Alakazam', 'Steelix', 'Gengar'],
+		onValidateTeam(team) {
+            let data = {
+                TwinleafTown: [['Magikarp', 3], ['Gyarados', 3]],
+                Route201: [['Turtwig', 5], ['Grotle', 5], ['Chimchar', 5], ['Monferno', 5], ['Piplup', 5], ['Prinplup', 5]],
+                LakeVerity: [['Starly', 2], ['Staravia', 2], ['Bidoof', 2], ['Bibarel', 2], ['Magikarp', 3], ['Gyarados', 3]],
+                Route219: [['Magikarp', 3], ['Gyarados', 3]],
+                Route202: [['Starly', 2], ['Staravia', 2], ['Bidoof', 2], ['Bibarel', 2], ['Kricketot', 3], ['Kricketune', 3], ['Shinx', 3], ['Luxio', 3]],
+                Route218: [['Magikarp', 3], ['Gyarados', 3]],
+                Route204: [['Zubat', 3], ['Golbat', 3], ['Crobat', 3], ['Wurmple', 4], ['Silcoon', 4], ['Beautifly', 4], ['Cascoon', 4], ['Dustox', 4],
+                           ['Starly', 4], ['Staravia', 4], ['Bidoof', 4], ['Bibarel', 4], ['Kricketot', 3], ['Kricketune', 3], ['Shinx', 4], ['Luxio', 4],
+                           ['Budew', 3], ['Roselia', 3]],
+                RavagedPath: [['Zubat', 3], ['Golbat', 3], ['Crobat', 3], ['Psyduck', 4], ['Magikarp', 3], ['Gyarados', 3]],
+                Route203: [['Zubat', 4], ['Golbat', 4], ['Crobat', 4], ['Abra', 4], ['Kadabra', 4], ['Starly', 4], ['Staravia', 4], ['Bidoof', 4],
+                           ['Bibarel', 4], ['Kricketot', 4], ['Kricketune', 4], ['Shinx', 4], ['Luxio', 4], ['Magikarp', 3], ['Gyarados', 3]],
+                OreburghGate: [['Zubat', 5], ['Golbat', 10], ['Crobat', 10], ['Psyduck', 5], ['Geodude', 5], ['Graveler', 5], ['Magikarp', 3], ['Gyarados', 3]],
+                Route207: [['Zubat', 5], ['Golbat', 5], ['Crobat', 5], ['Machop', 5], ['Abra', 5], ['Kadabra', 5], ['Geodude', 5], ['Graveler', 5],
+                           ['Ponyta', 5], ['Kricketot', 5], ['Kricketune', 5], ['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5],
+                           ['Cascoon', 5], ['Dustox', 5], ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                OreburghMine: [['Zubat', 5], ['Golbat', 5], ['Crobat', 5], ['Geodude', 4], ['Graveler', 4], ['Onix', 6]],
+                FloaromaMeadow: [['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5], ['Burmy', 5], ['Wormadam', 5],
+                                 ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                Route205: [['Bidoof', 10], ['Bibarel', 10], ['Pachirisu', 9], ['Buizel', 10], ['Floatzel', 10], ['Chatot', 10], ['Shellos', 9], ['Magikarp', 3], ['Gyarados', 3],
+                           ['Hoothoot', 12], ['Noctowl', 12], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5], ['Kricketot', 12], ['Kricketune', 12],
+                           ['Budew', 12], ['Roselia', 12], ['Aipom', 5], ['Heracross', 5], ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5],
+                           ['Cherrim', 5], ['Munchlax', 5]],
+                ValleyWindworks: [['Shinx', 10], ['Luxio', 10], ['Pachirisu', 9], ['Buizel', 9], ['Floatzel', 9], ['Chatot', 9], ['Shellos', 9], ['Magikarp', 3], ['Gyarados', 3],
+                                  ['Drifloon', 15], ['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5], ['Burmy', 5],
+                                  ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                EternaForest: [['Gastly', 13], ['Haunter', 13], ['Hoothoot', 12], ['Noctowl', 12], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5],
+                               ['Bidoof', 12], ['Bibarel', 12], ['Kricketot', 10], ['Kricketune', 10], ['Budew', 10], ['Roselia', 10], ['Buneary', 11], ['Lopunny', 11], ['Aipom', 5],
+                               ['Heracross', 5], ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                EternaCity: [['Magikarp', 3], ['Gyarados', 3], ['Togepi', 1], ['Togetic', 1]],
+                Route211: [['Zubat', 14], ['Golbat', 14], ['Crobat', 14], ['Machop', 14], ['Abra', 14], ['Kadabra', 14], ['Hoothoot', 15], ['Noctowl', 15], ['Meditite', 13],
+                           ['Bidoof', 14], ['Bibarel', 14], ['Chingling', 14], ['Chimecho', 14], ['Bronzor', 14]],
+                MtCoronet: [['Zubat', 14], ['Golbat', 14], ['Crobat', 14], ['Machop', 16], ['Abra', 16], ['Kadabra', 16], ['Geodude', 13], ['Graveler', 13], ['Cleffa', 13],
+                            ['Clefairy', 17], ['Clefable', 17], ['Nosepass', 14], ['Probopass', 14], ['Meditite', 14], ['Chingling', 13], ['Chimecho', 13], ['Bronzor', 14],
+                            ['Magikarp', 3], ['Gyarados', 3]],
+                OldChateau: [['Gastly', 14], ['Haunter', 14], ['Rotom', 20]],
+                Route206: [['Zubat', 17], ['Golbat', 17], ['Crobat', 17], ['Machop', 17], ['Abra', 17], ['Kadabra', 17], ['Geodude', 16], ['Graveler', 16], ['Ponyta', 16],
+                           ['Gligar', 16], ['Kricketune', 17], ['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5],
+                           ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                WaywardCave: [['Zubat', 17], ['Golbat', 17], ['Crobat', 17], ['Geodude', 17], ['Graveler', 17], ['Onix', 18], ['Bronzor', 18], ['Gible', 17], ['Gabite', 17]],
+                Route208: [['Zubat', 19], ['Golbat', 19], ['Crobat', 19], ['Ralts', 17], ['Kirlia', 17], ['Budew', 18], ['Roselia', 19], ['Bidoof', 18], ['Bibarel', 18],
+                           ['Magikarp', 3], ['Gyarados', 3], ['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5],
+                           ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                HearthomeCity: [['Eevee', 20], ['Vaporeon', 20], ['Jolteon', 20], ['Flareon', 20], ['Espeon', 20], ['Umbreon', 20], ['Leafeon', 20]]
+            };
+
+            function getRoutesForPokemon(pokemon, data) {
+                let routeList = [];
+                for (let route in data) {
+                    let encounters = data[route];
+                    encounters.forEach( (encounter) => {
+                        if (pokemon === encounter[0]) {
+                            routeList.push(route);
+                        }
+                    });
+                }
+                return routeList;
+            }
+
+            function validEncounters(pokemonList, routeData) {
+                // Deal with one pokemon from the list, and the rest will be handled by recursion.
+                let pokemon = pokemonList[0];
+
+                let routes = getRoutesForPokemon(pokemon, routeData);
+                if (routes.length === 0) {
+                    // Always return a list of tuples (in this case, an empty list)
+                    return [];
+                }
+                else if (pokemonList.length === 1) {
+                    // We're at a tail call, where there is only one pokemon left.
+                    return [[pokemon, routes[0]]];
+                }
+                else {
+                    // We need to check validity of everything else for each possible route that this Pokemon can come from.
+                    for (let i = 0; i < routes.length; i++ ) {
+                        let route = routes[ i ];
+
+                        // Make a copy of route data without the route we choose for this Pokemon.
+                        let routeDataCopy = {};
+                        for (let entry in routeData) {
+                            if (entry !== route) {
+                                routeDataCopy[entry] = routeData[entry];
+                            }
+                        }
+                        // Recurse with data minus this Pokemon and its chosen route.
+                        let result = validEncounters(pokemonList.slice(1), routeDataCopy);
+
+                        // If at least one of the configurations returned are valid, then this current pairing is valid.
+                        if (result.length >= 1) {
+                            // Combine the current pairing with the returned configurations.
+                            return result.concat([[pokemon, route]])
+                        }
+                    }
+
+                    // If none of the configurations returned are valid, then this current pairing is not valid either.
+                    return [];
+                }
+
+                // Should never get here.
+                console.log("There's a bug in the recursion!");
+                return [];
+            }
+
+            let pokemonList = [];
+			for (const set of team) {
+                pokemonList.push(this.dex.getSpecies(set.species).baseSpecies);
+            }
+
+            let result = validEncounters(pokemonList, data);
+            if (result.length === 6) {
+                console.log('Final team:');
+                console.log(result);
+            }
+            else {
+                console.log('Team not valid!');
+                return ['Your team is not valid according to Nuzlocke encounter rules!'];
+            }
+        },
+	},
 ];
