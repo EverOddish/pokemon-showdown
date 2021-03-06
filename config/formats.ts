@@ -3115,6 +3115,42 @@ export const Formats: FormatList = [
                 console.log('Team not valid!');
                 return ['Your team is not valid according to Nuzlocke encounter rules!'];
             }
+
+            // Now validate the move sets
+			for (const set of team) {
+                let species = this.dex.getSpecies(set.species).baseSpecies;
+                let route = result.filter( encounter => encounter[0] === species )[0][1];
+                let minLevel = data[route].filter( encounter => encounter[0] === species )[0][1];
+
+                let validMoves = [];
+                let lsetData = this.dex.getLearnsetData(species.toLowerCase());
+                for (let move in lsetData.learnset) {
+                    lsetData.learnset[move].forEach( (value) => {
+                        if (value.startsWith('4L')) {
+                            let level = Number(value.slice(2));
+                            validMoves.push([move, level]);
+                        }
+                    } );
+                }
+                validMoves.sort((e1, e2) => e1[1] - e2[1]);
+                // Find the index of the earliest valid move based on encounter minimum level
+                let i;
+                for (i = 0 ; i < validMoves.length; i++) {
+                    if (validMoves[i][1] >= minLevel) {
+                        break;
+                    }
+                }
+                let start = Math.max(0, i - 3);
+                validMoves = validMoves.slice(start);
+                console.log(validMoves);
+
+                for (const move of set.moves) {
+                    console.log(move);
+                    if (!validMoves.find(e => e[0] === move)) {
+                        return [species + ' cannot learn ' + move + ' in this rule set'];
+                    }
+                }
+            }
         },
 	},
 ];
