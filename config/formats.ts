@@ -3158,6 +3158,23 @@ export const Formats: FormatList = [
                 if ("Bibarel" === species) {
                     validMoves.push(['yawn', 25]);
                 }
+                if ("Gyarados" === species) {
+                    validMoves.push(['tackle', 15]);
+                }
+                if ("Flareon" === species ||
+                    "Jolteon" === species ||
+                    "Vaporeon" === species ||
+                    "Espeon" === species ||
+                    "Umbreon" === species
+                    ) {
+                    validMoves.push(['helpinghand', 1]);
+                    validMoves.push(['sandattack', 8]);
+                    validMoves.push(['growl', 15]);
+                }
+                if ("Rotom" === species) {
+                    validMoves.push(['confuseray', 1]);
+                    validMoves.push(['thundershock', 1]);
+                }
 
                 for (const move of set.moves) {
                     if (!validMoves.find(e => e[0] === move)) {
@@ -3165,6 +3182,24 @@ export const Formats: FormatList = [
                     }
                 }
             }
+
+            // Nuzlocke Species Clause
+			const speciesTable: Set<number> = new Set();
+			for (const set of team) {
+				const species = this.dex.getSpecies(set.species);
+				if (speciesTable.has(species.baseSpecies)) {
+					return [`You are limited to one of each Pokémon evolution line.`];
+				}
+				speciesTable.add(species.baseSpecies);
+                if (species.prevo.length > 0) {
+                    speciesTable.add(species.prevo);
+                }
+                if (null != species.evo) {
+                    for (const evo of species.evo) {
+                        speciesTable.add(evo);
+                    }
+                }
+			}
         },
 	},
 ];
