@@ -3142,10 +3142,24 @@ export const Formats: FormatList = [
                 }
                 let start = Math.max(0, i - 3);
                 validMoves = validMoves.slice(start);
-                console.log(validMoves);
+
+                // Special cases
+                if ("Golbat" === species) {
+                    validMoves.push(['aircutter', 25]);
+                }
+                if ("Clefairy" === species) {
+                    validMoves.push(['charm', 13]);
+                    validMoves.push(['copycat', 13]);
+                    validMoves.push(['magicalleaf', 13]);
+                }
+                if ("Roselia" === species) {
+                    validMoves.push(['worryseed', 16]);
+                }
+                if ("Bibarel" === species) {
+                    validMoves.push(['yawn', 25]);
+                }
 
                 for (const move of set.moves) {
-                    console.log(move);
                     if (!validMoves.find(e => e[0] === move)) {
                         return [species + ' cannot learn ' + move + ' in this rule set'];
                     }
