@@ -3214,6 +3214,10 @@ export const Formats: FormatList = [
                             let level = Number(value.slice(2));
                             validMoves.push([move, level]);
                         }
+                        else if (value.startsWith('4M')) {
+                            // For the sake of move validation, add all TMs for now. TM validation happens later.
+                            validMoves.push([move, 26]);
+                        }
                     } );
                 }
 
