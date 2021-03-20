@@ -3123,7 +3123,10 @@ export const Formats: FormatList = [
                 let minLevel = data[route].filter( encounter => encounter[0] === species )[0][1];
 
                 let validMoves = [];
+                let validTMs = [];
                 let lsetData = this.dex.getLearnsetData(species.toLowerCase());
+
+                // Moves
                 for (let move in lsetData.learnset) {
                     lsetData.learnset[move].forEach( (value) => {
                         if (value.startsWith('4L')) {
@@ -3132,6 +3135,19 @@ export const Formats: FormatList = [
                         }
                     } );
                 }
+
+                // TMs
+                for (let move in lsetData.learnset) {
+                    lsetData.learnset[move].forEach( (value) => {
+                        if (value.startsWith('4M')) {
+                            // Ignore if the TM is also in the learnset naturally
+                            if (!validMoves.find(m => m[0] === move)) {
+                                validTMs.push(move);
+                            }
+                        }
+                    } );
+                }
+
                 validMoves.sort((e1, e2) => e1[1] - e2[1]);
                 // Find the index of the earliest valid move based on encounter minimum level
                 let i;
@@ -3181,6 +3197,59 @@ export const Formats: FormatList = [
                         return [species + ' cannot learn ' + move + ' in this rule set'];
                     }
                 }
+
+                let availableTMs = [
+                    ['bulletseed', 1],
+                    ['taunt', 1],
+                    ['earthquake', 1],
+                    ['return', 1],
+                    ['brickbreak', 1],
+                    ['doubleteam', 1],
+                    ['rocktomb', 1],
+                    ['secretpower', 1],
+                    ['attract', 1],
+                    ['thief', 1],
+                    ['recycle', 1],
+                    ['flash', 1],
+                    ['stealthrock', 1],
+                    ['captivate', 1],
+                    ['sleeptalk', 1],
+                    ['grassknot', 1],
+                    ['pluck', 1],
+                    ['substitute', 1],
+                    ['cut', 0],
+                    ['rocksmash', 0]
+                ];
+
+                for (const move of set.moves) {
+                    if (validTMs.find(e => e === move)) {
+                        // This move is a TM
+                        let match = availableTMs.find(e => e[0] === move);
+                        if (match) {
+                            // Found an available TM
+                            if (match[1] > 0) {
+                                // Decrement or remove entirely
+                                if (match[1] > 1 ) {
+                                    for (var tm in availableTMs) {
+                                        if (tm[0] === match[0]) {
+                                            tm[1] = tm[1] - 1;
+                                        }
+                                    }
+                                }
+                                else {
+                                    // Only one left, so use it up
+                                    availableTMs = availableTMs.filter(i => i[0] !== match[0]);
+                                }
+                            }
+                            else {
+                                // Infinite TM, nothing to do
+                            }
+                        }
+                        else {
+                            return [species + ' cannot have TM/HM ' + move + ' (none left)'];
+                        }
+                    }
+                }
             }
 
             // Nuzlocke Species Clause
@@ -3200,6 +3269,8 @@ export const Formats: FormatList = [
                     }
                 }
 			}
+
+            // Valid items
         },
 	},
 ];
