@@ -3116,6 +3116,87 @@ export const Formats: FormatList = [
                 return ['Your team is not valid according to Nuzlocke encounter rules!'];
             }
 
+            let availableTMs = [
+                ['bulletseed', 1],
+                ['taunt', 1],
+                ['earthquake', 1],
+                ['return', 1],
+                ['brickbreak', 1],
+                ['doubleteam', 1],
+                ['rocktomb', 1],
+                ['secretpower', 1],
+                ['attract', 1],
+                ['thief', 1],
+                ['recycle', 1],
+                ['flash', 1],
+                ['stealthrock', 1],
+                ['captivate', 1],
+                ['sleeptalk', 1],
+                ['grassknot', 1],
+                ['pluck', 1],
+                ['substitute', 1],
+                ['cut', 0],
+                ['rocksmash', 0]
+            ];
+
+            let availableItems = [
+                ['Draco Plate', 0],
+                ['Dread Plate', 0],
+                ['Earth Plate', 0],
+                ['Fist Plate', 0],
+                ['Flame Plate', 0],
+                ['Icicle Plate', 0],
+                ['Insect Plate', 0],
+                ['Iron Plate', 0],
+                ['Meadow Plate', 0],
+                ['Mind Plate', 0],
+                ['Sky Plate', 0],
+                ['Splash Plate', 0],
+                ['Spooky Plate', 0],
+                ['Stone Plate', 0],
+                ['Toxic Plate', 0],
+                ['Zap Plate', 0],
+                ['Damp Rock', 0],
+                ['Grip Claw', 1],
+                ['Hard Stone', 0],
+                ['Heat Rock', 0],
+                ['Icy Rock', 0],
+                ['Iron Ball', 0],
+                ['King\'s Rock', 0],
+                ['Leftovers', 0],
+                ['Light Clay', 0],
+                ['Metal Coat', 0],
+                ['Metronome', 0],
+                ['Miracle Seed', 0],
+                ['Poison Barb', 0],
+                ['Quick Claw', 1],
+                ['Shed Shell', 0],
+                ['Shell Bell', 1],
+                ['Silver Powder', 1],
+                ['Smooth Rock', 0],
+                ['Twisted Spoon', 0],
+                ['Cheri Berry', 0],
+                ['Chesto Berry', 0],
+                ['Pecha Berry', 0],
+                ['Rawst Berry', 0],
+                ['Aspear Berry', 0],
+                ['Leppa Berry', 0],
+                ['Oran Berry', 0],
+                ['Persim Berry', 0],
+                ['Lum Berry', 0],
+                ['Sitrus Berry', 0],
+                ['Figy Berry', 0],
+                ['Wiki Berry', 0],
+                ['Mago Berry', 0],
+                ['Aguav Berry', 0],
+                ['Iapapa Berry', 0],
+                ['Haban Berry', 0],
+                ['Shuca Berry', 0],
+                ['Wakan Berry', 0],
+                ['Yache Berry', 0],
+                ['', 0],
+            ];
+
             // Now validate the move sets
 			for (const set of team) {
                 let species = this.dex.getSpecies(set.species).baseSpecies;
@@ -3198,29 +3279,7 @@ export const Formats: FormatList = [
                     }
                 }
 
-                let availableTMs = [
-                    ['bulletseed', 1],
-                    ['taunt', 1],
-                    ['earthquake', 1],
-                    ['return', 1],
-                    ['brickbreak', 1],
-                    ['doubleteam', 1],
-                    ['rocktomb', 1],
-                    ['secretpower', 1],
-                    ['attract', 1],
-                    ['thief', 1],
-                    ['recycle', 1],
-                    ['flash', 1],
-                    ['stealthrock', 1],
-                    ['captivate', 1],
-                    ['sleeptalk', 1],
-                    ['grassknot', 1],
-                    ['pluck', 1],
-                    ['substitute', 1],
-                    ['cut', 0],
-                    ['rocksmash', 0]
-                ];
-
+                // Validate TMs
                 for (const move of set.moves) {
                     if (validTMs.find(e => e === move)) {
                         // This move is a TM
@@ -3246,9 +3305,36 @@ export const Formats: FormatList = [
                             }
                         }
                         else {
-                            return [species + ' cannot have TM/HM ' + move + ' (none left)'];
+                            return [species + ' cannot have TM/HM ' + move + ' (none available)'];
                         }
                     }
+                }
+
+                // Validate items
+                const item = this.dex.getItem(set.item).name;
+                let match = availableItems.find(e => e[0] === item);
+                if (match) {
+                    // Found an available TM
+                    if (match[1] > 0) {
+                        // Decrement or remove entirely
+                        if (match[1] > 1 ) {
+                            for (var item_ in availableItems) {
+                                if (item_[0] === match[0]) {
+                                    item_[1] = item_[1] - 1;
+                                }
+                            }
+                        }
+                        else {
+                            // Only one left, so use it up
+                            availableItems = availableItems.filter(i => i[0] !== match[0]);
+                        }
+                    }
+                    else {
+                        // Infinite item, nothing to do
+                    }
+                }
+                else {
+                    return [species + ' cannot have held item ' + item + ' (none available)'];
                 }
             }
 
@@ -3269,8 +3355,6 @@ export const Formats: FormatList = [
                     }
                 }
 			}
-
-            // Valid items
         },
 	},
 ];
