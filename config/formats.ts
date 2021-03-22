@@ -3249,18 +3249,40 @@ export const Formats: FormatList = [
                 if ("Golbat" === species) {
                     validMoves.push(['aircutter', 25]);
                 }
-                if ("Clefairy" === species) {
-                    validMoves.push(['charm', 13]);
+                if ("Clefairy" === species || "Clefable" === species) {
+                    validMoves.push(['pound', 1]);
+                    validMoves.push(['charm', 1]);
+                    validMoves.push(['encore', 4]);
+                    validMoves.push(['sing', 7]);
+                    validMoves.push(['sweetkiss', 10]);
                     validMoves.push(['copycat', 13]);
-                    validMoves.push(['magicalleaf', 13]);
+                    validMoves.push(['magicalleaf', 16]);
+                    validMoves.push(['doubleslap', 10]);
+                    validMoves.push(['defensecurl', 13]);
+                    validMoves.push(['followme', 16]);
+                    validMoves.push(['minimize', 19]);
+                    validMoves.push(['wakeupslap', 22]);
+                    validMoves.push(['cosmicpower', 25]);
                 }
                 if ("Roselia" === species) {
                     validMoves.push(['worryseed', 16]);
                 }
+                if ("Probopass" === species) {
+                    validMoves.push(['tackle', 1]);
+                    validMoves.push(['harden', 7]);
+                    validMoves.push(['rockthrow', 13]);
+                    validMoves.push(['block', 19]);
+                    validMoves.push(['thunderwave', 25]);
+                }
                 if ("Bibarel" === species) {
                     validMoves.push(['yawn', 25]);
                 }
+                if ("Gabite" === species) {
+                    validMoves.push(['tackle', 1]);
+                    validMoves.push(['sandattack', 1]);
+                }
                 if ("Gyarados" === species) {
+                    validMoves.push(['splash', 1]);
                     validMoves.push(['tackle', 15]);
                     validMoves = validMoves.filter(m => m[0] !== 'thrash');
                 }
