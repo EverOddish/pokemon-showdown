@@ -2995,7 +2995,7 @@ export const Formats: FormatList = [
 		mod: 'gen4',
         maxLevel: 26,
 		ruleset: ['Standard'],
-        banlist: ['Alakazam', 'Steelix', 'Gengar'],
+        banlist: ['Alakazam', 'Steelix', 'Gengar', 'Dragon Rage'],
 		onValidateTeam(team) {
             let data = {
                 TwinleafTown: [['Magikarp', 3], ['Gyarados', 3]],
@@ -3275,6 +3275,13 @@ export const Formats: FormatList = [
                 if ("Rotom" === species) {
                     validMoves.push(['confuseray', 1]);
                     validMoves.push(['thundershock', 1]);
+                }
+                if ("Vespiquen" === species) {
+                    validMoves.push(['bugbite', 13]);
+                }
+                if ("Dustox" === species) {
+                    validMoves.push(['poisonsting', 5]);
+                    validMoves.push(['bugbite', 15]);
                 }
 
                 for (const move of set.moves) {
