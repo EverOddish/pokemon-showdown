@@ -3193,7 +3193,7 @@ export const Formats: FormatList = [
                 ['Iapapa Berry', 0],
                 ['Haban Berry', 0],
                 ['Shuca Berry', 0],
-                ['Wakan Berry', 0],
+                ['Wacan Berry', 0],
                 ['Yache Berry', 0],
                 ['', 0],
             ];
