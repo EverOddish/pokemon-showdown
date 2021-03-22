@@ -3226,10 +3226,7 @@ export const Formats: FormatList = [
                 for (let move in lsetData.learnset) {
                     lsetData.learnset[move].forEach( (value) => {
                         if (value.startsWith('4M')) {
-                            // Ignore if the TM is also in the learnset naturally
-                            if (!validMoves.find(m => m[0] === move)) {
-                                validTMs.push(move);
-                            }
+                            validTMs.push(move);
                         }
                     } );
                 }
