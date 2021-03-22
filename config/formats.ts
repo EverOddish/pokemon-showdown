@@ -3109,8 +3109,8 @@ export const Formats: FormatList = [
 
             let result = validEncounters(pokemonList, data);
             if (result.length === 6) {
-                console.log('Final team:');
-                console.log(result);
+                //console.log('Final team:');
+                //console.log(result);
             }
             else {
                 console.log('Team not valid!');
@@ -3215,10 +3215,6 @@ export const Formats: FormatList = [
                             let level = Number(value.slice(2));
                             validMoves.push([move, level]);
                         }
-                        else if (value.startsWith('4M')) {
-                            // For the sake of move validation, add all TMs for now. TM validation happens later.
-                            validMoves.push([move, 26]);
-                        }
                     } );
                 }
 
@@ -3282,9 +3278,14 @@ export const Formats: FormatList = [
                     validMoves.push(['bugbite', 15]);
                 }
 
+                //console.log(species + ' ' + validMoves);
+
                 for (const move of set.moves) {
-                    if (!validMoves.find(e => e[0] === move)) {
+                    if (!validMoves.find(e => e[0] === move) && !validTMs.find(e => e === move)) {
                         return [species + ' cannot learn ' + move + ' in this rule set'];
+                    }
+                    if (validMoves.find(e => e[0] === move) && validTMs.find(e => e === move)) {
+                        validTMs = validTMs.filter(i => i !== move);
                     }
                 }
 
