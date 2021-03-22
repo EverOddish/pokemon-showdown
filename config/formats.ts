@@ -3041,7 +3041,8 @@ export const Formats: FormatList = [
                 Route208: [['Zubat', 19], ['Golbat', 19], ['Crobat', 19], ['Ralts', 17], ['Kirlia', 17], ['Budew', 18], ['Roselia', 19], ['Bidoof', 18], ['Bibarel', 18],
                            ['Magikarp', 3], ['Gyarados', 3], ['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5],
                            ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
-                HearthomeCity: [['Eevee', 20], ['Vaporeon', 20], ['Jolteon', 20], ['Flareon', 20], ['Espeon', 20], ['Umbreon', 20], ['Leafeon', 20]]
+                HearthomeCity: [['Eevee', 20], ['Vaporeon', 20], ['Jolteon', 20], ['Flareon', 20], ['Espeon', 20], ['Umbreon', 20], ['Leafeon', 20]],
+                OreburghCity: [['Cranidos', 20], ['Shieldon', 20]]
             };
 
             function getRoutesForPokemon(pokemon, data) {
