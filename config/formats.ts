@@ -2995,7 +2995,7 @@ export const Formats: FormatList = [
 		mod: 'gen4',
         maxLevel: 26,
 		ruleset: ['Standard'],
-        banlist: ['Alakazam', 'Steelix', 'Gengar', 'Dragon Rage'],
+        banlist: ['Alakazam', 'Steelix', 'Gengar', 'Dragon Rage', 'Rotom-Fan', 'Rotom-Frost', 'Rotom-Heat', 'Rotom-Mow', 'Rotom-Wash'],
 		onValidateTeam(team) {
             let data = {
                 TwinleafTown: [['Magikarp', 3], ['Gyarados', 3]],
