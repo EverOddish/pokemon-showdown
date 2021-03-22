@@ -3213,7 +3213,9 @@ export const Formats: FormatList = [
                     lsetData.learnset[move].forEach( (value) => {
                         if (value.startsWith('4L')) {
                             let level = Number(value.slice(2));
-                            validMoves.push([move, level]);
+                            if (level <= 26) {
+                                validMoves.push([move, level]);
+                            }
                         }
                     } );
                 }
@@ -3255,6 +3257,7 @@ export const Formats: FormatList = [
                 }
                 if ("Gyarados" === species) {
                     validMoves.push(['tackle', 15]);
+                    validMoves = validMoves.filter(m => m[0] !== 'thrash');
                 }
                 if ("Flareon" === species ||
                     "Jolteon" === species ||
