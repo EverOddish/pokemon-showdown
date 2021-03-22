@@ -3013,20 +3013,24 @@ export const Formats: FormatList = [
                 OreburghGate: [['Zubat', 5], ['Golbat', 10], ['Crobat', 10], ['Psyduck', 5], ['Geodude', 5], ['Graveler', 5], ['Magikarp', 3], ['Gyarados', 3]],
                 Route207: [['Zubat', 5], ['Golbat', 5], ['Crobat', 5], ['Machop', 5], ['Abra', 5], ['Kadabra', 5], ['Geodude', 5], ['Graveler', 5],
                            ['Ponyta', 5], ['Kricketot', 5], ['Kricketune', 5], ['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5],
-                           ['Cascoon', 5], ['Dustox', 5], ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                           ['Cascoon', 5], ['Dustox', 5], ['Burmy', 5], ['Wormadam', 5], ['Wormadam-Trash', 5], ['Wormadam-Sandy', 5], ['Mothim', 5], ['Combee', 5],
+                           ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
                 OreburghMine: [['Zubat', 5], ['Golbat', 5], ['Crobat', 5], ['Geodude', 4], ['Graveler', 4], ['Onix', 6]],
                 FloaromaMeadow: [['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5], ['Burmy', 5], ['Wormadam', 5],
+                                 ['Wormadam-Trash', 5], ['Wormadam-Sandy', 5], 
                                  ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
                 Route205: [['Bidoof', 10], ['Bibarel', 10], ['Pachirisu', 9], ['Buizel', 10], ['Floatzel', 10], ['Chatot', 10], ['Shellos', 9], ['Magikarp', 3], ['Gyarados', 3],
                            ['Hoothoot', 12], ['Noctowl', 12], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5], ['Kricketot', 12], ['Kricketune', 12],
                            ['Budew', 12], ['Roselia', 12], ['Aipom', 5], ['Heracross', 5], ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5],
+                           ['Wormadam-Trash', 5], ['Wormadam-Sandy', 5], 
                            ['Cherrim', 5], ['Munchlax', 5]],
                 ValleyWindworks: [['Shinx', 10], ['Luxio', 10], ['Pachirisu', 9], ['Buizel', 9], ['Floatzel', 9], ['Chatot', 9], ['Shellos', 9], ['Magikarp', 3], ['Gyarados', 3],
                                   ['Drifloon', 15], ['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5], ['Burmy', 5],
-                                  ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                                  ['Wormadam', 5], ['Wormadam-Trash', 5], ['Wormadam-Sandy', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
                 EternaForest: [['Gastly', 13], ['Haunter', 13], ['Hoothoot', 12], ['Noctowl', 12], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5],
                                ['Bidoof', 12], ['Bibarel', 12], ['Kricketot', 10], ['Kricketune', 10], ['Budew', 10], ['Roselia', 10], ['Buneary', 11], ['Lopunny', 11], ['Aipom', 5],
-                               ['Heracross', 5], ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                               ['Heracross', 5], ['Burmy', 5], ['Wormadam', 5], ['Wormadam-Trash', 5], ['Wormadam-Sandy', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5],
+                               ['Cherrim', 5], ['Munchlax', 5]],
                 EternaCity: [['Magikarp', 3], ['Gyarados', 3], ['Togepi', 1], ['Togetic', 1]],
                 Route211: [['Zubat', 14], ['Golbat', 14], ['Crobat', 14], ['Machop', 14], ['Abra', 14], ['Kadabra', 14], ['Hoothoot', 15], ['Noctowl', 15], ['Meditite', 13],
                            ['Bidoof', 14], ['Bibarel', 14], ['Chingling', 14], ['Chimecho', 14], ['Bronzor', 14]],
@@ -3036,11 +3040,11 @@ export const Formats: FormatList = [
                 OldChateau: [['Gastly', 14], ['Haunter', 14], ['Rotom', 20]],
                 Route206: [['Zubat', 17], ['Golbat', 17], ['Crobat', 17], ['Machop', 17], ['Abra', 17], ['Kadabra', 17], ['Geodude', 16], ['Graveler', 16], ['Ponyta', 16],
                            ['Gligar', 16], ['Kricketune', 17], ['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5],
-                           ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                           ['Burmy', 5], ['Wormadam-Trash', 5], ['Wormadam-Sandy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
                 WaywardCave: [['Zubat', 17], ['Golbat', 17], ['Crobat', 17], ['Geodude', 17], ['Graveler', 17], ['Onix', 18], ['Bronzor', 18], ['Gible', 17], ['Gabite', 17]],
                 Route208: [['Zubat', 19], ['Golbat', 19], ['Crobat', 19], ['Ralts', 17], ['Kirlia', 17], ['Budew', 18], ['Roselia', 19], ['Bidoof', 18], ['Bibarel', 18],
                            ['Magikarp', 3], ['Gyarados', 3], ['Aipom', 5], ['Heracross', 5], ['Wurmple', 5], ['Silcoon', 5], ['Beautifly', 5], ['Cascoon', 5], ['Dustox', 5],
-                           ['Burmy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
+                           ['Burmy', 5], ['Wormadam-Trash', 5], ['Wormadam-Sandy', 5], ['Wormadam', 5], ['Mothim', 5], ['Combee', 5], ['Vespiquen', 5], ['Cherubi', 5], ['Cherrim', 5], ['Munchlax', 5]],
                 HearthomeCity: [['Eevee', 20], ['Vaporeon', 20], ['Jolteon', 20], ['Flareon', 20], ['Espeon', 20], ['Umbreon', 20], ['Leafeon', 20]],
                 OreburghCity: [['Cranidos', 20], ['Shieldon', 20]]
             };
@@ -3206,7 +3210,8 @@ export const Formats: FormatList = [
 
                 let validMoves = [];
                 let validTMs = [];
-                let lsetData = this.dex.getLearnsetData(species.toLowerCase());
+                let speciesId = this.dex.getSpecies(set.species).id;
+                let lsetData = this.dex.getLearnsetData(speciesId);
 
                 // Moves
                 for (let move in lsetData.learnset) {
