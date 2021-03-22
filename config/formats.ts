@@ -3249,6 +3249,9 @@ export const Formats: FormatList = [
                 if ("Golbat" === species) {
                     validMoves.push(['aircutter', 25]);
                 }
+                if ("Kirlia" === species) {
+                    validMoves.push(['confusion', 6]);
+                }
                 if ("Clefairy" === species || "Clefable" === species) {
                     validMoves.push(['pound', 1]);
                     validMoves.push(['charm', 1]);
@@ -3281,10 +3284,22 @@ export const Formats: FormatList = [
                     validMoves.push(['tackle', 1]);
                     validMoves.push(['sandattack', 1]);
                 }
+                if ("Gible" === species) {
+                    validMoves.push(['sandattack', 1]);
+                }
                 if ("Gyarados" === species) {
                     validMoves.push(['splash', 1]);
                     validMoves.push(['tackle', 15]);
                     validMoves = validMoves.filter(m => m[0] !== 'thrash');
+                }
+                if ("Noctowl" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'skyattack');
+                }
+                if ("Togetic" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'magicalleaf');
+                }
+                if ("Kadabra" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'kinesis');
                 }
                 if ("Flareon" === species ||
                     "Jolteon" === species ||
@@ -3306,6 +3321,9 @@ export const Formats: FormatList = [
                 if ("Dustox" === species) {
                     validMoves.push(['poisonsting', 5]);
                     validMoves.push(['bugbite', 15]);
+                }
+                if ("Muchlax" === species) {
+                    validMoves.push(['metronome', 1]);
                 }
 
                 //console.log(species + ' ' + validMoves);
