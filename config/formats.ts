@@ -3235,7 +3235,7 @@ export const Formats: FormatList = [
                         break;
                     }
                 }
-                let start = Math.max(0, i - 3);
+                let start = Math.max(0, i - 4);
                 validMoves = validMoves.slice(start);
 
                 // Now do pre-evolution moves
@@ -3279,6 +3279,78 @@ export const Formats: FormatList = [
                 }
                 if ("Kadabra" === species) {
                     validMoves = validMoves.filter(m => m[0] !== 'kinesis');
+                }
+                if ("Clefairy" === species) {
+                    if (validMoves.filter(m => m[0] === 'doubleslap') &&
+                        ( validMoves.filter(m => m[0] === 'encore') ||
+                          validMoves.filter(m => m[0] === 'sweetkiss') ||
+                          validMoves.filter(m => m[0] === 'copycat') )
+                        ) {
+                        return ['Clefairy cannot know Doubleslap and Encore/Sweet Kiss/Copycat'];
+                    }
+                    if (validMoves.filter(m => m[0] === 'defensecurl') &&
+                        ( validMoves.filter(m => m[0] === 'encore') ||
+                          validMoves.filter(m => m[0] === 'sweetkiss') ||
+                          validMoves.filter(m => m[0] === 'copycat') )
+                        ) {
+                        return ['Clefairy cannot know Defense Curl and Encore/Sweet Kiss/Copycat'];
+                    }
+                }
+                if ("Dustox" === species) {
+                    if (validMoves.filter(m => m[0] === 'bugbite') &&
+                        ( validMoves.filter(m => m[0] === 'harden') ||
+                          validMoves.filter(m => m[0] === 'confusion') ||
+                          validMoves.filter(m => m[0] === 'gust') )
+                        ) {
+                        return ['Dustox cannot know Bug Bite and Harden/Confusion/Gust'];
+                    }
+                }
+                if ("Beautifly" === species) {
+                    if (validMoves.filter(m => m[0] === 'bugbite') &&
+                        ( validMoves.filter(m => m[0] === 'harden') ||
+                          validMoves.filter(m => m[0] === 'absorb') ||
+                          validMoves.filter(m => m[0] === 'gust') )
+                        ) {
+                        return ['Beautifly cannot know Bug Bite and Harden/Absorb/Gust'];
+                    }
+                }
+                if ("Golbat" === species || "Crobat" === species) {
+                    if (validMoves.filter(m => m[0] === 'screech') &&
+                        validMoves.filter(m => m[0] === 'aircutter') ) {
+                        return [species + ' cannot know Screech and Air Cutter'];
+                    }
+                }
+                if ("Kricketune" === species) {
+                    if (validMoves.filter(m => m[0] === 'bugbite') &&
+                        validMoves.filter(m => m[0] === 'furycutter') ) {
+                        return ['Kricketune cannot know Bug Bite and Fury Cutter'];
+                    }
+                    if (validMoves.filter(m => m[0] === 'bugbite') &&
+                        validMoves.filter(m => m[0] === 'leechlife') ) {
+                        return ['Kricketune cannot know Bug Bite and Leech Life'];
+                    }
+                }
+                if ("Roselia" === species) {
+                    if (validMoves.filter(m => m[0] === 'poisonsting') &&
+                        validMoves.filter(m => m[0] === 'worryseed') ) {
+                        return ['Roselia cannot know Poison String and Worry Seed'];
+                    }
+                }
+                if ("Bibarel" === species) {
+                    if (validMoves.filter(m => m[0] === 'watergun') &&
+                        validMoves.filter(m => m[0] === 'yawn') ) {
+                        return ['Bibarel cannot know Water Gun and Yawn'];
+                    }
+                }
+                if ("Monferno" === species) {
+                    if (validMoves.filter(m => m[0] === 'machpunch') &&
+                        validMoves.filter(m => m[0] === 'torment') ) {
+                        return ['Monferno cannot know Mach Punch and Torment'];
+                    }
+                    if (validMoves.filter(m => m[0] === 'machpunch') &&
+                        validMoves.filter(m => m[0] === 'nastyplot') ) {
+                        return ['Monferno cannot know Mach Punch and Nasty Plot'];
+                    }
                 }
 
                 //console.log(species + ' ' + validMoves);
