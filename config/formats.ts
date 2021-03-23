@@ -3355,6 +3355,26 @@ export const Formats: FormatList = [
                     }
                 }
 
+                // Hidden Power
+                if (validMoves.find(m => m[0] === 'hiddenpower') || validTMs.find(m => m === 'hiddenpower')) {
+                    validMoves.push(['hiddenpowerfire', 1]);
+                    validMoves.push(['hiddenpowerwater', 1]);
+                    validMoves.push(['hiddenpowergrass', 1]);
+                    validMoves.push(['hiddenpowerelectric', 1]);
+                    validMoves.push(['hiddenpowerice', 1]);
+                    validMoves.push(['hiddenpowerfighting', 1]);
+                    validMoves.push(['hiddenpowerpoison', 1]);
+                    validMoves.push(['hiddenpowerground', 1]);
+                    validMoves.push(['hiddenpowerflying', 1]);
+                    validMoves.push(['hiddenpowerpsychic', 1]);
+                    validMoves.push(['hiddenpowerbug', 1]);
+                    validMoves.push(['hiddenpowerrock', 1]);
+                    validMoves.push(['hiddenpowerghost', 1]);
+                    validMoves.push(['hiddenpowerdark', 1]);
+                    validMoves.push(['hiddenpowerdragon', 1]);
+                    validMoves.push(['hiddenpowersteel', 1]);
+                }
+
                 //console.log(species + ' ' + validMoves);
 
                 for (const move of set.moves) {
