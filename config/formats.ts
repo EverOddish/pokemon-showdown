@@ -3212,6 +3212,7 @@ export const Formats: FormatList = [
                 let validTMs = [];
                 let speciesId = this.dex.getSpecies(set.species).id;
                 let lsetData = this.dex.getLearnsetData(speciesId);
+                let originalLsetData = lsetData;
 
                 // Moves
                 for (let move in lsetData.learnset) {
@@ -3258,8 +3259,8 @@ export const Formats: FormatList = [
                 }
 
                 // TMs
-                for (let move in lsetData.learnset) {
-                    lsetData.learnset[move].forEach( (value) => {
+                for (let move in originalLsetData.learnset) {
+                    originalLsetData.learnset[move].forEach( (value) => {
                         if (value.startsWith('4M')) {
                             validTMs.push(move);
                         }
