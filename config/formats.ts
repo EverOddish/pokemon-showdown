@@ -3225,15 +3225,7 @@ export const Formats: FormatList = [
                     } );
                 }
 
-                // TMs
-                for (let move in lsetData.learnset) {
-                    lsetData.learnset[move].forEach( (value) => {
-                        if (value.startsWith('4M')) {
-                            validTMs.push(move);
-                        }
-                    } );
-                }
-
+                // Remove pre-encounter moves (must be done before pre-evo moves)
                 validMoves.sort((e1, e2) => e1[1] - e2[1]);
                 // Find the index of the earliest valid move based on encounter minimum level
                 let i;
@@ -3245,51 +3237,37 @@ export const Formats: FormatList = [
                 let start = Math.max(0, i - 3);
                 validMoves = validMoves.slice(start);
 
+                // Now do pre-evolution moves
+                let current = species;
+                let prevo = this.dex.getSpecies(current).prevo;
+                while (prevo.length > 0) {
+                    speciesId = this.dex.getSpecies(prevo).id;
+                    lsetData = this.dex.getLearnsetData(speciesId);
+                    for (let move in lsetData.learnset) {
+                        lsetData.learnset[move].forEach( (value) => {
+                            if (value.startsWith('4L')) {
+                                let level = Number(value.slice(2));
+                                if (level <= 26) {
+                                    validMoves.push([move, level]);
+                                }
+                            }
+                        } );
+                    }
+                    current = prevo;
+                    prevo = this.dex.getSpecies(current).prevo;
+                }
+
+                // TMs
+                for (let move in lsetData.learnset) {
+                    lsetData.learnset[move].forEach( (value) => {
+                        if (value.startsWith('4M')) {
+                            validTMs.push(move);
+                        }
+                    } );
+                }
+
                 // Special cases
-                if ("Golbat" === species) {
-                    validMoves.push(['aircutter', 25]);
-                }
-                if ("Kirlia" === species) {
-                    validMoves.push(['confusion', 6]);
-                }
-                if ("Clefairy" === species || "Clefable" === species) {
-                    validMoves.push(['pound', 1]);
-                    validMoves.push(['charm', 1]);
-                    validMoves.push(['encore', 4]);
-                    validMoves.push(['sing', 7]);
-                    validMoves.push(['sweetkiss', 10]);
-                    validMoves.push(['copycat', 13]);
-                    validMoves.push(['magicalleaf', 16]);
-                    validMoves.push(['doubleslap', 10]);
-                    validMoves.push(['defensecurl', 13]);
-                    validMoves.push(['followme', 16]);
-                    validMoves.push(['minimize', 19]);
-                    validMoves.push(['wakeupslap', 22]);
-                    validMoves.push(['cosmicpower', 25]);
-                }
-                if ("Roselia" === species) {
-                    validMoves.push(['worryseed', 16]);
-                }
-                if ("Probopass" === species) {
-                    validMoves.push(['tackle', 1]);
-                    validMoves.push(['harden', 7]);
-                    validMoves.push(['rockthrow', 13]);
-                    validMoves.push(['block', 19]);
-                    validMoves.push(['thunderwave', 25]);
-                }
-                if ("Bibarel" === species) {
-                    validMoves.push(['yawn', 25]);
-                }
-                if ("Gabite" === species) {
-                    validMoves.push(['tackle', 1]);
-                    validMoves.push(['sandattack', 1]);
-                }
-                if ("Gible" === species) {
-                    validMoves.push(['sandattack', 1]);
-                }
                 if ("Gyarados" === species) {
-                    validMoves.push(['splash', 1]);
-                    validMoves.push(['tackle', 15]);
                     validMoves = validMoves.filter(m => m[0] !== 'thrash');
                 }
                 if ("Noctowl" === species) {
@@ -3300,30 +3278,6 @@ export const Formats: FormatList = [
                 }
                 if ("Kadabra" === species) {
                     validMoves = validMoves.filter(m => m[0] !== 'kinesis');
-                }
-                if ("Flareon" === species ||
-                    "Jolteon" === species ||
-                    "Vaporeon" === species ||
-                    "Espeon" === species ||
-                    "Umbreon" === species
-                    ) {
-                    validMoves.push(['helpinghand', 1]);
-                    validMoves.push(['sandattack', 8]);
-                    validMoves.push(['growl', 15]);
-                }
-                if ("Rotom" === species) {
-                    validMoves.push(['confuseray', 1]);
-                    validMoves.push(['thundershock', 1]);
-                }
-                if ("Vespiquen" === species) {
-                    validMoves.push(['bugbite', 13]);
-                }
-                if ("Dustox" === species) {
-                    validMoves.push(['poisonsting', 5]);
-                    validMoves.push(['bugbite', 15]);
-                }
-                if ("Muchlax" === species) {
-                    validMoves.push(['metronome', 1]);
                 }
 
                 //console.log(species + ' ' + validMoves);
