@@ -3310,6 +3310,13 @@ export const Formats: FormatList = [
                 }
 
                 // Exclusions
+                if ("Floatzel" === species) {
+                    if (result.find(e => e[0] === 'Drifloon')) {
+                        if (set.moves.find(m => m === 'growl')) {
+                            return ["Floatzel can't learn Growl if not encountered at Valley Windworks"];
+                        }
+                    }
+                }
                 if ("Clefairy" === species) {
                     if (set.moves.find(m => m === 'doubleslap') &&
                         ( set.moves.find(m => m === 'encore') ||
