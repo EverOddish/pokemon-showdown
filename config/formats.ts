@@ -3309,6 +3309,16 @@ export const Formats: FormatList = [
                     validMoves = validMoves.filter(m => m[0] !== 'furyswipes');
                 }
 
+                if ("Magikarp" !== species &&
+                    "Burmy" !== species &&
+                    "Wurmple" !== species &&
+                    "Cascoony" !== species &&
+                    "Silcoon" !== species) { 
+                    if (set.moves.length < 4) {
+                        return [species + ' must have four moves'];
+                    }
+                }
+
                 // Exclusions
                 if ("Floatzel" === species) {
                     if (result.find(e => e[0] === 'Drifloon')) {
