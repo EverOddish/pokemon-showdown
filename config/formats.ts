@@ -3280,6 +3280,34 @@ export const Formats: FormatList = [
                 if ("Kadabra" === species) {
                     validMoves = validMoves.filter(m => m[0] !== 'kinesis');
                 }
+                if ("Leafeon" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'razorleaf');
+                }
+                if ("Glaceon" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'icywind');
+                }
+                if ("Jolteon" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'thundershock');
+                }
+                if ("Vaporeon" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'watergun');
+                }
+                if ("Flareon" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'ember');
+                }
+                if ("Espeon" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'confusion');
+                }
+                if ("Umbreon" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'pursuit');
+                }
+                if ("Vespiquen" === species) {
+                    validMoves = validMoves.filter(m => m[0] !== 'poisonsting');
+                    validMoves = validMoves.filter(m => m[0] !== 'furycutter');
+                    validMoves = validMoves.filter(m => m[0] !== 'defendorder');
+                    validMoves = validMoves.filter(m => m[0] !== 'pursuit');
+                    validMoves = validMoves.filter(m => m[0] !== 'furyswipes');
+                }
 
                 // Exclusions
                 if ("Clefairy" === species) {
