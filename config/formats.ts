@@ -3451,7 +3451,7 @@ export const Formats: FormatList = [
                 }
 
                 // Hidden Power
-                if (validMoves.find(m => m[0] === 'hiddenpower') || validTMs.find(m => m === 'hiddenpower')) {
+                if (validMoves.find(m => m[0] === 'hiddenpower')) {
                     validMoves.push(['hiddenpowerfire', 1]);
                     validMoves.push(['hiddenpowerwater', 1]);
                     validMoves.push(['hiddenpowergrass', 1]);
@@ -3468,6 +3468,24 @@ export const Formats: FormatList = [
                     validMoves.push(['hiddenpowerdark', 1]);
                     validMoves.push(['hiddenpowerdragon', 1]);
                     validMoves.push(['hiddenpowersteel', 1]);
+                }
+                if (validTMs.find(m => m === 'hiddenpower')) {
+                    validTMs.push(['hiddenpowerfire', 1]);
+                    validTMs.push(['hiddenpowerwater', 1]);
+                    validTMs.push(['hiddenpowergrass', 1]);
+                    validTMs.push(['hiddenpowerelectric', 1]);
+                    validTMs.push(['hiddenpowerice', 1]);
+                    validTMs.push(['hiddenpowerfighting', 1]);
+                    validTMs.push(['hiddenpowerpoison', 1]);
+                    validTMs.push(['hiddenpowerground', 1]);
+                    validTMs.push(['hiddenpowerflying', 1]);
+                    validTMs.push(['hiddenpowerpsychic', 1]);
+                    validTMs.push(['hiddenpowerbug', 1]);
+                    validTMs.push(['hiddenpowerrock', 1]);
+                    validTMs.push(['hiddenpowerghost', 1]);
+                    validTMs.push(['hiddenpowerdark', 1]);
+                    validTMs.push(['hiddenpowerdragon', 1]);
+                    validTMs.push(['hiddenpowersteel', 1]);
                 }
 
                 //console.log(species + ' ' + validMoves);
