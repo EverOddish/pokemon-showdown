@@ -602,7 +602,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+                // Mod: remove infinite weather
+				//if (this.gen <= 5) this.effectData.duration = 0;
 				this.add('-weather', 'Sandstorm', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Sandstorm');
@@ -632,7 +633,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+                // Mod: remove infinite weather
+				//if (this.gen <= 5) this.effectData.duration = 0;
 				this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Hail');

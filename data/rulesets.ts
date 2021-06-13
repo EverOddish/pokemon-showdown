@@ -457,7 +457,7 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'VGC Timer',
 		desc: "VGC's timer: 90 second Team Preview, 7 minutes Your Time, 45 seconds per turn",
 		timer: {
-			starting: 7 * 60, addPerTurn: 0, maxPerTurn: 45, maxFirstTurn: 90,
+			starting: 7 * 60, addPerTurn: 0, maxPerTurn: 50, maxFirstTurn: 90,
 			grace: 90, timeoutAutoChoose: true, dcTimerBank: false,
 		},
 	},
