@@ -2587,7 +2587,7 @@ export const Formats: FormatList = [
 		column: 4,
 	},
 	{
-		name: "[Gen 5] Doubles OU",
+		name: "[Gen 5] PokemonChallenges Doubles",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3606719/">BW2 Doubles Metagame Discussion</a>`,
 			`&bullet; <a href="https://www.smogon.com/forums/posts/7393048/">BW2 Doubles Viability Rankings</a>`,
@@ -2596,9 +2596,13 @@ export const Formats: FormatList = [
 
 		mod: 'gen5',
 		gameType: 'doubles',
-		searchShow: false,
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Sleep Clause Mod'],
-		banlist: ['DUber', 'Soul Dew', 'Dark Void', 'Gravity'],
+		teamLength: {
+			validate: [4, 6],
+			battle: 4,
+		},
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Item Clause', 'Sleep Clause Mod', 'VGC Timer'],
+		banlist: ['Dark Void', 'Gravity', 'Swagger', 'Soul Dew',
+                  'Mewtwo', 'Lugia', 'Ho-oh', 'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Dialga', 'Palkia', 'Giratina', 'Giratina-Origin', 'Arceus', 'Reshiram', 'Zekrom', 'Kyurem-White'],
 	},
 	{
 		name: "[Gen 5] GBU Doubles",
